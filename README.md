@@ -39,7 +39,7 @@ sudo dd bs=4M count=450 if=/dev/sdc | pv | dd of=my-raspi-system.iso
 sync
 ```
 
-# <a name="step-1"></a>Copy an raspbery system image to an usb key
+# <a name="step-1"></a>Step 1 - Copy a raspbery system image to an usb key
 
 Be carreful and verify that everything is working fine with one usb key.
 
