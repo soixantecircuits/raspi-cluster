@@ -17,27 +17,7 @@ To check your usb path use `df -h`. You should you see partitions with names lik
 # <a name="step-0"></a>Step 0 - Copy a system from a usb key to your computer.
 
 If you already have a ISO image (or we provide one for you) you can skip this step and directly go to [Step 1](#step-1). 
-If you need a system please read bellow.
-
-## Operation a : reduce partition size
-Open the usb key in `gparted` to reduce partition size to less than `1800 MB`. This will allow a faster copy.
-Then find the path of your key using `$ df -h`
-
-In this example, our key is /dev/sdc
-
-## Operation b : unmount
-```
-umount /dev/sdc1
-umount /dev/sdc2
-```
-
-## Operation c : copy on your disk
-Then copy on your disk: 
-
-```
-sudo dd bs=4M count=450 if=/dev/sdc | pv | dd of=my-raspi-system.iso
-sync
-```
+If you need a system please read [manipulating_partitions_and_filesystems.md](https://github.com/soixantecircuits/raspi-cluster/blob/master/manipulating_partitions_and_filesystems.md).
 
 # <a name="step-1"></a>Step 1 - Copy a raspbery system image to an usb key
 
@@ -52,7 +32,7 @@ umount /dev/sdc2
 
 ## Operation b : copy from your disk to the usb key
 ```
-dd bs=4M count=450 if=my-raspi-system.iso | pv | sudo dd of=/dev/sdc
+dd bs=4M if=my-raspi-system.iso | pv | sudo dd of=/dev/sdc
 sync
 ```
 
@@ -66,7 +46,7 @@ umount /dev/sdb2
 
 and then copy on the sdcard: 
 ```
-dd bs=4M count=450 if=boot.iso | pv | sudo dd of=/dev/sdb
+dd bs=4M if=boot.iso | pv | sudo dd of=/dev/sdb
 sync
 ```
 
