@@ -215,7 +215,7 @@ sudo mount /dev/loop28 /mnt/iso3
 ls /mnt/iso3
 ```
 
-#### Copy to usb key
+### Copy to usb key
 
 
 ```
@@ -226,6 +226,28 @@ sync
 
 And then try this usb key with the boot SD card you made earlier.
 
+Voilà!
+
+### Resize later
+
+If you need to expand the filesystem because you lack space, it is easy to do it directly on the raspberrypi. `raspi-config` won't do it because it looks for a SD card. But you can do it this way
+
+```
+sudo fdisk /dev/sda 
+```
+Press 'd' to delete the partition, 'n' to make a new one, primary, number 1, first sector 2048, enter the new size you need for the last sector, default is to expand to the max size on usb key.
+
+Then
+
+```
+sudo reboot
+sudo resize2fs /dev/sda1
+```
+Check it did the job: 
+
+```
+df -h
+```
 
 ### Thank you
 
