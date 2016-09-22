@@ -235,8 +235,14 @@ If you need to expand the filesystem because you lack space, it is easy to do it
 ```
 sudo fdisk /dev/sda 
 ```
-Press 'd' to delete the partition, 'n' to make a new one, primary, number 1, first sector 2048, enter the new size you need for the last sector, default is to expand to the max size on usb key.
-
+* press 'd' to delete the partition,
+* press 'n' to make a new one, and select
+* press enter for primary,
+* press enter for number 1, 
+* press enter for first sector 2048,
+* press enter for default, to expand to the max size on usb key, or enter the new size you need for the last sector.
+* press 'w' to write changes
+* 
 Then
 
 ```
