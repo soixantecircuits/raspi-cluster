@@ -13,6 +13,7 @@ To check your usb path use `df -h`. You should you see partitions with names lik
 ## Requires
 
 `sudo apt-get install pv`
+`sudo apt-get install parallel`
 
 # <a name="step-0"></a>Step 0 - Copy a system from a usb key to your computer.
 

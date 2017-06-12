@@ -1,9 +1,11 @@
 #!/bin/bash
-start_number=66
-last_number=70
-current_hostname='chow-chowXX'
-new_prefix='chow-chow'
-partition_path='/media/emmanuel/c1398422-7a7c-4863-8a8f-45a1db26b4f2'
+start_number=18
+last_number=23
+current_hostname='snapboxXX'
+new_prefix='snapbox'
+partition_path='/media/mina/f39781f6-b968-4738-93ef-4d1af6861b99'
+current_ip='10.60.60.5'
+ip_prefix='10.60.60.'
 
 function rename {
   number=$1
@@ -15,6 +17,7 @@ function rename {
   echo $partition_path${partition_postfix}
   echo $new_prefix${number}
   sudo sed -i "s/$current_hostname/$new_prefix${number}/" $partition_path${partition_postfix}/etc/hosts $partition_path${partition_postfix}/etc/hostname
+  sudo sed -i "s/$current_ip/$ip_prefix${number}/" $partition_path${partition_postfix}/etc/network/interfaces
 }
 
 for ((i=$start_number;i<=$last_number; i++))
